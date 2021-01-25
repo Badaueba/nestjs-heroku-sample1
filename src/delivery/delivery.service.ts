@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { DeliveryRepository } from './delivery.repository';
 
 @Injectable()
 export class DeliveryService {
-	getSquareMeter(): number {
-		return 0;
+	constructor(private deliveryRepository: DeliveryRepository) {}
+	getSquareMeter(): Promise<number> {
+		return this.deliveryRepository.findOneMeterValue();
 	}
 }

@@ -8,7 +8,7 @@ export class DeliveryController {
 	constructor(private deliveryService: DeliveryService) {}
 
 	@Get()
-	getSquareMeter(): number {
+	getSquareMeter(): Promise<number> {
 		return this.deliveryService.getSquareMeter();
 	}
 }

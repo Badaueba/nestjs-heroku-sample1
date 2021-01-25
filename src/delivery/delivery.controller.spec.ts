@@ -1,18 +1,21 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { DeliveryController } from './delivery.controller';
+import { DeliveryService } from './delivery.service';
+import { DeliveryRepository } from './delivery.repository';
 
 describe('DeliveryController', () => {
-  let controller: DeliveryController;
+	let deliveryController: DeliveryController;
+	let deliveryService: DeliveryService;
+	let deliveryRepository: DeliveryRepository;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [DeliveryController],
-    }).compile();
+	beforeEach(() => {
+		deliveryRepository = new DeliveryRepository();
+		deliveryService = new DeliveryService(deliveryRepository);
+		deliveryController = new DeliveryController(deliveryService);
+	});
 
-    controller = module.get<DeliveryController>(DeliveryController);
-  });
-
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
+	describe('Get', () => {
+		it('should be a number', async () => {
+			expect(await deliveryController.getSquareMeter()).toBeGreaterThan(0);
+		});
+	});
 });
