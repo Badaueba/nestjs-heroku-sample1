@@ -5,7 +5,7 @@ export class DeliveryRepository {
 	async findOneMeterValue(): Promise<number> {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				resolve(52930);
+				resolve(100);
 			}, 2000);
 		});
 	}
