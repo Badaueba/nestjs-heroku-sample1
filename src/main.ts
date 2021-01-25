@@ -7,7 +7,9 @@ const port = process.env.PORT || 9000;
 const name = process.env.NAME || 'API1';
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule);
+	const app = await NestFactory.create(AppModule, {
+		cors: true,
+	});
 
 	const options = new DocumentBuilder()
 		.setTitle(`${name} Docs`)
