@@ -68,8 +68,5 @@
 	},
 	"resolutions": {
 		"swagger-ui-dist": "3.30.0"
-	},
-	"engines": {
-		"node": "14.x"
 	}
 }
